@@ -1,5 +1,5 @@
 class BookclubsController < ApplicationController
-  before_action :set_bookclub, only: %i[show edit update delete]
+  before_action :set_bookclub, only: %i[show edit update destroy]
 
   def index
     @bookclub = Bookclub.all
@@ -32,7 +32,7 @@ class BookclubsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @bookclub.destroy
     redirect_to bookclubs_path
   end

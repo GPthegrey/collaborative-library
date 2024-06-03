@@ -1,5 +1,5 @@
 class LoansController < ApplicationController
-  before_action :set_loan, only: %i[show edit update delete]
+  before_action :set_loan, only: %i[show edit update destroy]
 
   def index
     @loans = Loan.all
@@ -32,7 +32,7 @@ class LoansController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @loan.destroy
     redirect_to loans_path
   end

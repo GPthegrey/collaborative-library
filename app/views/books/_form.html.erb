@@ -1,0 +1,16 @@
+<div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card rounded-3 shadow mt-3 bg-primary">
+        <div class="card-body">
+          <%= simple_form_for(@book) do |f| %>
+            <%= f.input :title, label: 'Titulo', input_html: { class: 'form-control bg-primary-dark border-primary-darker' }%>
+            <%= f.input :description, label: 'Descripción', input_html: { class: 'form-control bg-primary-dark border-primary-darker' } %>
+            <%= f.association :genre, label: 'Categoría', input_html: { class: 'form-select bg-primary-dark border-primary-darker' } %>
+            <%= f.input :language, as: :select, collection: ["English", "Castellano", "Catalan", "Italiano", "Frances", "Aleman"], label: 'Idioma', input_html: { class: 'form-select bg-primary-dark border-primary-darker' } %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true, class: 'form-control bg-primary-dark border-primary-darker' }, label: 'Fotos' %>
+            <%= f.button :submit, @book.persisted? ? 'Actualizar' : 'Crear', class: 'd-block w-50 m-auto btn btn-secondary-light border-primary-dark my-2' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

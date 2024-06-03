@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-before_action :set_book, only: %i[show edit update delete]
+before_action :set_book, only: %i[show edit update destroy]
 
   def index
     @books = Book.all
@@ -32,7 +32,7 @@ before_action :set_book, only: %i[show edit update delete]
     end
   end
 
-  def delete
+  def destroy
     @book.destroy
     redirect_to books_path
   end
