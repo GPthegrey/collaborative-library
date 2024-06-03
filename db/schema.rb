@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_31_092358) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_03_073729) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -107,6 +107,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_31_092358) do
     t.index ["user_id"], name: "index_participants_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "user_reviewed_id", null: false
+    t.bigint "user_reviewer_id", null: false
+    t.bigint "loan_id", null: false
+    t.integer "rating"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["loan_id"], name: "index_reviews_on_loan_id"
+    t.index ["user_reviewed_id"], name: "index_reviews_on_user_reviewed_id"
+    t.index ["user_reviewer_id"], name: "index_reviews_on_user_reviewer_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -133,4 +146,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_31_092358) do
   add_foreign_key "messages", "users"
   add_foreign_key "participants", "chatrooms"
   add_foreign_key "participants", "users"
+  add_foreign_key "reviews", "loans"
+  add_foreign_key "reviews", "users", column: "user_reviewed_id"
+  add_foreign_key "reviews", "users", column: "user_reviewer_id"
 end
