@@ -1,0 +1,38 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h3 class="mb-0 text-dark">Perfil de Usuario</h3>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <p class="lead"><strong>Nombre:</strong> </p>
+              <p class="lead"><strong>Email:</strong> <%= @user.email %></p>
+              <p class="lead"><strong>Rating:  <i class="fa-solid fa-star"></i> </p>
+              <p class="lead"><strong>Ubicación:</strong> </p>
+            </div>
+            <div class="col-md-6 mb-3 px-4">
+              <% if @user.photo.present? %>
+                <%= cl_image_tag @user.photo.key, height: 200, width: 300, crop: :fill, class: "img-fluid rounded" %>
+              <% else %>
+                <p class="mb-0">No hay foto disponible</p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer bg-light">
+          <%= link_to 'Editar Perfil', edit_user_registration_path, class: 'btn btn-primary-dark border-primary-darker me-2' %>
+          <%= link_to "Cerrar Sesión", "/users/sign_out", data: {turbo_method: :delete}, class: "btn btn-dark float-end" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='container'>
+  <h1>Mis Libros</h1>
+  <%= link_to "Agregar Libro", new_book_path, class: "btn btn-primary-dark border-primary-darker" %>
+  <%= render 'books/my_books', items: @items %>
+</div>
