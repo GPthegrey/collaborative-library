@@ -42,4 +42,8 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :author, :description, :genre, :rating, :language)
   end
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
 end

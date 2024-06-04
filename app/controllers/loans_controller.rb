@@ -42,4 +42,8 @@ class LoansController < ApplicationController
   def loan_params
     params.require(:loan).permit(:book_id, :user_id, :loan_date, :return_date)
   end
+
+  def set_loan
+    @loan = Loan.find(params[:id])
+  end
 end

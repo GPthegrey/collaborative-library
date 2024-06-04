@@ -42,4 +42,8 @@ class BookclubsController < ApplicationController
   def book_params
     params.require(:bookclub).permit(:name, :description, :privacy)
   end
+
+  def set_bookclub
+    @bookclub = Bookclub.find(params[:id])
+  end
 end
