@@ -1,9 +1,60 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+Book.destroy_all
+Bookclub.destroy_all
+Event.destroy_all
+Loan.destroy_all
+Review.destroy_all
+Chatroom.destroy_all
+User.destroy_all
+
+User.create(email: 'guido@mail.com', password: '123456')
+User.create(email: 'juan@mail.com', password: '123456')
+
+print 'Users created'
+
+books = [
+  {
+    title: "The Catcher in the Rye",
+    author: "J.D. Salinger",
+    description: "The hero-narrator of The Catcher in the Rye is an ancient child of sixteen, a native New Yorker named Holden Caulfield. Through circumstances that tend to preclude adult, secondhand description, he leaves his prep school in Pennsylvania and goes underground in New York City for three days.",
+    genre: "Fiction",
+    language: "English",
+    user_id: User.first.id
+  },
+  {
+    title: "1984",
+    author: "George Orwell",
+    description: "The story of Winston Smith begins on 4 April 1984: It was a bright cold day in April, and the clocks were striking thirteen. Yet he is uncertain of the true date, given the regime's continual rewriting and manipulation of history. Smith is a diligent and skillful worker, but he secretly hates the Party and dreams of rebellion against Big Brother.",
+    genre: "Fiction",
+    language: "English",
+    user_id: User.first.id
+  },
+  {
+    title: "To Kill a Mockingbird",
+    author: "Harper Lee",
+    description: "The story, told by the six-year-old Jean Louise Finch, takes place during three years (1933–35) of the Great Depression in the fictional town of Maycomb, Alabama, the seat of Maycomb County. Jean Louise Finch, nicknamed Scout, lives with her older brother Jeremy, nicknamed Jem, and their widowed father Atticus, a middle-aged lawyer.",
+    genre: "Fiction",
+    language: "Spanish",
+    user_id: User.first.id
+  },
+  {
+    title: 'Roma soy yo',
+    author:'Santiago Posteguillo',
+    description: 'Historia de Cesar',
+    genre: 'Novela Historica',
+    language: 'Spanish',
+    user_id: User.last.id
+  },
+  {
+    title: 'El Asesinato de Socrates',
+    author:'Marcos Chicot',
+    description: 'Historia de Socrates',
+    genre: 'Novela Historica',
+    language: 'Spanish',
+    user_id: User.last.id
+  }
+]
+
+books.each do |book|
+  Book.create(book)
+  print 'book created'
+end
