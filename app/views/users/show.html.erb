@@ -12,13 +12,6 @@
               <p class="lead"><strong>Rating: <%= @rating.nil? ? 'Sin reseñas' : @rating %> <i class="fa-solid fa-star"></i></strong></p>
               <p class="lead"><strong>Ubicación:</strong> </p>
             </div>
-            <div class="col-md-6 mb-3 px-4">
-              <% if @user.photo.present? %>
-                <%= cl_image_tag @user.photo.key, height: 200, width: 300, crop: :fill, class: "img-fluid rounded" %>
-              <% else %>
-                <p class="mb-0">No hay foto disponible</p>
-              <% end %>
-            </div>
           </div>
         </div>
       </div>
@@ -28,6 +21,5 @@
 
 <div class='container'>
 
-  <h1>Libros de <%= user_name %></h1>
-  <%= render 'books/my_books', items: @items %>
+  <h1>Libros de <%= @user.email.split("@").first %></h1>
 </div>

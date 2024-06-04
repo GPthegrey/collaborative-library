@@ -13,13 +13,6 @@
               <p class="lead"><strong>Rating:  <i class="fa-solid fa-star"></i> </p>
               <p class="lead"><strong>Ubicación:</strong> </p>
             </div>
-            <div class="col-md-6 mb-3 px-4">
-              <% if @user.photo.present? %>
-                <%= cl_image_tag @user.photo.key, height: 200, width: 300, crop: :fill, class: "img-fluid rounded" %>
-              <% else %>
-                <p class="mb-0">No hay foto disponible</p>
-              <% end %>
-            </div>
           </div>
         </div>
         <div class="card-footer bg-light">
@@ -34,5 +27,4 @@
 <div class='container'>
   <h1>Mis Libros</h1>
   <%= link_to "Agregar Libro", new_book_path, class: "btn btn-primary-dark border-primary-darker" %>
-  <%= render 'books/my_books', items: @items %>
 </div>
