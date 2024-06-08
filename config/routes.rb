@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   get 'pages/terminos_de_uso', to: "pages#terminos_de_uso", as: "terminos_de_uso"
   get 'users/:id', to: 'users#show', as: :user
   get 'profile', to: 'users#profile', as: :profile
-  resources :books
+  resources :books do
+  resources :loans, only: [:new, :create]
+  end
+  resources :loans, except: [:new, :create]
   get 'mybooks', to: 'books#my_books', as: :mybooks
-  resources :loans
   resources :reviews, only: [:create]
   resources :events
   resources :bookclubs
