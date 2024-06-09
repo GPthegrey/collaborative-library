@@ -40,8 +40,12 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book.destroy
-    redirect_to books_path
+    if @book.status == 'Available'
+      @book.destroy
+      redirect_to books_path, status: :see_other
+    else
+      redirect_to @book, notice: 'No puede eliminar un libro que no está disponible.'
+    end
   end
 
   private
