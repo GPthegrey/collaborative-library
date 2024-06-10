@@ -6,6 +6,7 @@
     <p class="card-text">Genero: <%= book.genre %></p>
     <p class="card-text">Idioma: <%= book.language %></p>
     <p class="card-text">Usuario: <%= book.user.email %></p>
+    <p class="card-text">Disponibilidad: <%= book.status %></p>
     <%# <%= link_to 'Solicitar', loan_path (book) %>
     <% if book.user == current_user %>
       <%= form_with(model: book, url: book_path(book), method: :delete, class: "d-inline text-end", data: { turbo_confirm: "¿Estás seguro?" }) do |form| %>
