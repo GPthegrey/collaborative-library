@@ -1,40 +1,32 @@
 <div class="footer mobile-only p-0 m-0 bg-white">
   <div class="footer-links w-100 h-100 d-flex align-items-center justify-content-around">
-    <%= link_to deals_path, class: 'footer-link' do %>
+    <%= link_to loans_path, class: 'footer-link' do %>
       <div class="text-secondary">
         <i class="w-100 text-center fa-solid fa-rotate"></i>
-        <% if !user_signed_in? || current_user.received_offers.where(status: 'pending').empty? %>
-          <p class="m-0 fs-6 text-center">Mis trueques</p>
-        <% else %>
-          <p class="m-0 fs-6 text-center">Mis trueques <i class="fa-solid fa-bell"></i></p>
-        <% end %>
+        <p class="m-0 fs-6 text-center">Mis Prestamos</p>
       </div>
     <% end %>
         <%= link_to chatrooms_path, class: 'footer-link' do %>
           <div class="text-secondary">
             <i class="w-100 text-center fa-solid fa-message"></i>
-            <% if !user_signed_in? || !Message.where.not(user: current_user).where(read: false, chatroom: current_user.chatrooms).any? %>
               <p class="m-0 fs-6 text-center">Chats <i class="fa-solid fa-envelope-open"></i></p>
-            <% else %>
-              <p class="m-0 fs-6 text-center">Chats <i class="fa-regular fa-envelope"></i></p>
-            <% end %>
             </div class="text-secondary">
           <% end %>
-          <%= link_to new_item_path, class: 'footer-link' do %>
+          <%= link_to new_book_path, class: 'footer-link' do %>
           <div class="text-secondary">
             <i class="w-100 fs-1 text-center fa-solid fa-circle-plus"></i>
           </div>
         <% end %>
-        <%= link_to items_path, class: 'footer-link' do %>
+        <%= link_to books_path, class: 'footer-link' do %>
           <div class="text-secondary">
             <i class="w-100 text-center fa-solid fa-globe"></i>
             <p class="m-0 fs-6 text-center">Explora</p>
           </div>
         <% end %>
-        <%= link_to myitems_path, class: 'footer-link' do %>
+        <%= link_to mybooks_path, class: 'footer-link' do %>
           <div class="text-secondary">
             <i class="w-100 text-center fa-solid fa-rectangle-list"></i>
-            <p class="m-0 fs-6 text-center">Mis ofertas</p>
+            <p class="m-0 fs-6 text-center">Mis libros</p>
           </div>
         <% end %>
       </div>
@@ -43,7 +35,7 @@
 
 <div class="footer border-top desktop-only mt-4">
   <div class="footer-copyright">
-   <p><em>© 2024 Loop</em></p>
+   <p><em>© 2024 Biblioteca de Babel</em></p>
    <%= link_to 'Términos de uso', terminos_de_uso_path %>
   </div>
 

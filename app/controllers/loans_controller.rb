@@ -2,7 +2,7 @@ class LoansController < ApplicationController
   before_action :set_loan, only: %i[show edit update destroy]
 
   def index
-    @loans = Loan.all
+    @loans = Loan.where(user_id: current_user.id)
   end
 
   def show
