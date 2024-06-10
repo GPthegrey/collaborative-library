@@ -1,17 +1,1 @@
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Titulo: <%= @book.title %></h5>
-    <p class="card-text">Autor: <%= @book.author %></p>
-    <p class="card-text">Descripcion: <%= @book.description %></p>
-    <p class="card-text">Genero: <%= @book.genre %></p>
-    <p class="card-text">Idioma: <%= @book.language %></p>
-    <p class="card-text">Usuario: <%= @book.user.email %></p>
-    <% if @book.user == current_user %>
-      <%= form_with(model: @book, url: book_path(@book), method: :delete, class: "d-inline text-end", data: { turbo_confirm: "¿Estás seguro?" }) do |form| %>
-        <%= form.button(type: "submit", class: "btn btn-sm") do %>
-          <i class="fas fa-trash"></i>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
-</div>
+<%= render 'card', book: @book %>

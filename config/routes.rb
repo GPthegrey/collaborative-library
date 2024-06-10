@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   get 'users/:id', to: 'users#show', as: :user
   get 'profile', to: 'users#profile', as: :profile
   resources :books do
-  resources :loans, only: [:new, :create]
+    member do
+      resources :loans, only: %i[new create]
+    end
   end
-  resources :loans, except: [:new, :create]
+  resources :loans, except: %i[new create]
   get 'mybooks', to: 'books#my_books', as: :mybooks
   resources :reviews, only: [:create]
   resources :events
