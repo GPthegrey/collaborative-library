@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def profile
     @user = current_user
     @books = Book.where(user: @user)
+    @loans = Loan.where(borrower_id: @user.id)
   end
 
   def create

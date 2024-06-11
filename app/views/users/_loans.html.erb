@@ -1,4 +1,4 @@
-<% current_user.loans_as_borrower do |loan| %>
+<% loans.each do |loan| %>
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Libro: <%= loan.book.title %></h5>
