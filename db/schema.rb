@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_09_183344) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_11_081235) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -76,6 +76,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_09_183344) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "start_date"
+    t.date "end_date"
     t.index ["book_id"], name: "index_loans_on_book_id"
     t.index ["borrower_id"], name: "index_loans_on_borrower_id"
     t.index ["owner_id"], name: "index_loans_on_owner_id"

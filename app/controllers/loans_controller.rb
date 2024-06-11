@@ -13,7 +13,13 @@ class LoansController < ApplicationController
   end
 
   def create
-    @loan = Loan.new(loan_params)
+    @book = Book.find(params[:book_id])
+    @loan = Loan.new(book_id: @book.id)
+    @loan.start_date = Date.today
+    @loan.end_date = Date.today + 30.days
+    @loan.status = 'Borrowed'
+    @loan.owner_id = @book.user_id
+    @loan.borrower_id = current_user.id
     if @loan.save
       redirect_to @loan
     else
@@ -39,11 +45,8 @@ class LoansController < ApplicationController
 
   private
 
-  def loan_params
-    params.require(:loan).permit(:book_id, :user_id, :loan_date, :return_date)
-  end
 
   def set_loan
-    @loan = Loan.find(params[:id])
+    @loan = Loan.find(params[:loan_id])
   end
 end

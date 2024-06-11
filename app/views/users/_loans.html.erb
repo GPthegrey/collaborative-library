@@ -1,0 +1,11 @@
+<% current_user.loans_as_borrower do |loan| %>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Libro: <%= loan.book.title %></h5>
+      <p class="card-text">Fecha de Prestamo: <%= loan.start_date %></p>
+      <p class="card-text">Fecha de Devolución: <%= loan.end_date %></p>
+      <p class="card-text">Estado: <%= loan.status %></p>
+      <p class="card-text">Dueno: <%= loan.book.user.email %></p>
+    </div>
+  </div>
+<% end %>

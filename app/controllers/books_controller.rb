@@ -3,9 +3,11 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
+    @loan = Loan.new
   end
 
   def show
+    @loan = Loan.new
   end
 
   def my_books
