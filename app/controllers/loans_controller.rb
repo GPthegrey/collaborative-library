@@ -2,9 +2,12 @@ class LoansController < ApplicationController
   before_action :set_loan, only: %i[show edit update destroy accept_loan]
 
   def index
-    @loans = Loan.where(borrower_id: current_user.id)
-    @requested_loans = Loan.where(owner_id: current_user.id).where(status: 'Pending')
+    @loans = Loan.where(borrower_id: current_user.id).where(status: 'Active')
+    @requested_loans = Loan.where(borrower_id: current_user.id).where(status: 'Pending')
+    @loans_pending = Loan.where(owner_id: current_user.id).where(status: 'Pending')
     @books_leant = Loan.where(owner_id: current_user.id).where.not(status: 'Pending')
+    @overdue_loans_borrower = Loan.where(borrower_id: current_user.id).where(status: 'overdue')
+    @overdue_loans_owner = Loan.where(owner_id: current_user.id).where(status: 'overdue')
   end
 
   def show
@@ -16,16 +19,20 @@ class LoansController < ApplicationController
 
   def create
     @book = Book.find(params[:book_id])
-    @loan = Loan.new(book_id: @book.id)
-    @loan.start_date = Date.today
-    @loan.end_date = Date.today + 30.days
-    @loan.status = 'Pending'
-    @loan.owner_id = @book.user_id
-    @loan.borrower_id = current_user.id
-    if @loan.save
-      redirect_to profile_path
+    if @book.status == 'Available'
+      @loan = Loan.new(book_id: @book.id)
+      @loan.start_date = Date.today
+      @loan.end_date = Date.today + 30.days
+      @loan.status = 'Pending'
+      @loan.owner_id = @book.user_id
+      @loan.borrower_id = current_user.id
+      if @loan.save
+        redirect_to profile_path
+      else
+        render 'new'
+      end
     else
-      render 'new'
+      redirect_to books_path, notice: 'Book is not available for loan'
     end
   end
 
