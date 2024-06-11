@@ -75,3 +75,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# to check possible errors in the code
+gem 'byebug'

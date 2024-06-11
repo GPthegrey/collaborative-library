@@ -1,0 +1,5 @@
+<% if loans %>
+  <% loans.each do |loan| %>
+    <%= render 'loan', loan: loan %>
+  <% end %>
+<% end %>

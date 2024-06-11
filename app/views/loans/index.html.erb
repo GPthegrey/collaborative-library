@@ -2,19 +2,19 @@
   <h1>Prestamos</h1>
 
   <h3>Activos</h3>
-  <%= render 'loans', loans: @loans %>
+  <%= render 'loans_list', loans: @loans %>
   <h3>Pendientes de aceptacion por el dueno</h3>
-  <%= render 'loans', loans: @requested_loans %>
+  <%= render 'loans_list', loans: @requested_loans %>
   <h3>Overdue</h3>
-  <%= render 'loans', loans: @overdue_loans_borrower %>
+  <%= render 'loans_list', loans: @overdue_loans_borrower %>
 </div>
 
 <div class='container'>
   <h3>Solicitud de prestamos recibidas</h1>
-  <%= render 'loans', loans: @loans_pending %>
+  <%= render 'loans_list', loans: @loans_pending %>
   <h3>Libros prestados</h1>
-  <%= render 'loans', loans: @books_leant %>
+  <%= render 'loans_list', loans: @books_leant %>
   <h3>Prestados con overdue</h3>
-  <%= render 'loans', loans: @overdue_loans_owner %>
+  <%= render 'loans_list', loans: @overdue_loans_owner %>
 
 </div>

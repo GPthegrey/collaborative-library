@@ -1,10 +1,11 @@
+Loan.destroy_all
 Book.destroy_all
 Bookclub.destroy_all
 Event.destroy_all
-Loan.destroy_all
 Review.destroy_all
 Chatroom.destroy_all
 User.destroy_all
+
 
 User.create(email: 'guido@mail.com', password: '123456')
 User.create(email: 'juan@mail.com', password: '123456')

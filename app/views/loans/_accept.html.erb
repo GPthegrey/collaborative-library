@@ -1,0 +1,4 @@
+<%= simple_form_for loan, url: accept_loan_path(loan), method: :patch do |f| %>
+  <%= f.hidden_field :loan_id, value: loan.id %>
+  <%= f.button :submit, "Aceptar", class: 'btn btn-primary-dark border-primary-darker my-2' %>
+<% end %>
