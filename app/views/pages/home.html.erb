@@ -1,4 +1,8 @@
 <h1>Bienvenidos a la Biblioteca de Babel</h1>
-<p>Aqui encontraras los libros y personas que buscas</p>
+<p>Aqui encontraras todos los libros, clubes literarios  y eventos que un lector necesita </p>
 
-<%= link_to 'Todos los libros', books_path %>
+<ul class='list-group'>
+  <li class='list-group-item'><%= link_to 'Todos los libros', books_path %></li>
+  <li class='list-group-item'><%= link_to 'Clubes de lectura', bookclubs_path %></li>
+  <li class='list-group-item'><%= link_to 'Eventos literarios', events_path %></li>
+</ul>
