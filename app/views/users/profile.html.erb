@@ -29,6 +29,7 @@
 
 <div class='container'>
   <h1>Mis Libros</h1>
+  <%= render 'books/list', books: @books %>
   <%= link_to "Agregar Libro", new_book_path, class: "btn btn-primary-dark border-primary-darker" %>
 </div>
 

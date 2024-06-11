@@ -1,5 +1,5 @@
 <% books.each do |book| %>
   <%= link_to book_path(book) do %>
-  <%= render 'card', book: book %>
+  <%= render 'books/card', book: book %>
   <% end %>
 <% end %>
