@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'profile', to: 'users#profile', as: :profile
 
   resources :books do
-      resources :loans, only: %i[new create]
+    resources :loans, only: %i[new create]
   end
 
   resources :loans, except: %i[new create]
