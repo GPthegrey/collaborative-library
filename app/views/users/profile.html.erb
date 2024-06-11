@@ -34,6 +34,17 @@
 </div>
 
 <div class='container'>
-  <h1>Mis Prestamos</h1>
+  <h1>Prestamos</h1>
   <%= render 'loans', loans: @loans %>
+</div>
+
+
+<div class='container'>
+  <h1>Solicitud de prestamos</h1>
+  <%= render 'loans', loans: @requested_loans %>
+</div>
+
+<div class='container'>
+  <h1>Libros prestados</h1>
+  <%= render 'loans', loans: @books_leant %>
 </div>

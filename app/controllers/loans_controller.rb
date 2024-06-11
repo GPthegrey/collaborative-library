@@ -1,8 +1,10 @@
 class LoansController < ApplicationController
-  before_action :set_loan, only: %i[show edit update destroy]
+  before_action :set_loan, only: %i[show edit update destroy accept_loan]
 
   def index
     @loans = Loan.where(borrower_id: current_user.id)
+    @requested_loans = Loan.where(owner_id: current_user.id).where(status: 'Pending')
+    @books_leant = Loan.where(owner_id: current_user.id).where.not(status: 'Pending')
   end
 
   def show
@@ -17,15 +19,18 @@ class LoansController < ApplicationController
     @loan = Loan.new(book_id: @book.id)
     @loan.start_date = Date.today
     @loan.end_date = Date.today + 30.days
-    @loan.status = 'Active'
+    @loan.status = 'Pending'
     @loan.owner_id = @book.user_id
     @loan.borrower_id = current_user.id
     if @loan.save
-      @book.update(status: 'Borrowed')
       redirect_to profile_path
     else
       render 'new'
     end
+  end
+
+  def accept_loan
+    @loan.update(status: 'Accepted')
   end
 
   def edit
