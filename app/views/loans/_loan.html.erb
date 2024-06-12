@@ -3,7 +3,11 @@
         <h5 class="card-title">Libro: <%= loan.book.title %></h5>
         <p class="card-text">Fecha de Prestamo: <%= loan.start_date %></p>
         <p class="card-text">Fecha de Devolución: <%= loan.end_date %></p>
-        <p class="card-text"><%= loan.status %></p>
+        <% if loan.status == 'Pending' %>
+          <p class="card-text text-warning">Estado: Pendiente</p>
+        <% else %>
+          <p class="card-text text-success">Estado: Aceptado</p>
+        <% end %>
         <p class="card-text">Dueno: <%= loan.book.user.email %></p>
       </div>
       <% if loan.status == "Pending" && loan.owner_id == current_user.id %>

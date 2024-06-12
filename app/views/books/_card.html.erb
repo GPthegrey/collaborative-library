@@ -18,7 +18,7 @@
         <% end %>
       <% end %>
     <% else %>
-      <% if current_user.blocked == 'false' %>
+      <% if current_user.blocked == false %>
         <%= simple_form_for([book, @loan]) do |f| %>
         <%= f.submit 'Solicitar en Prestamo', class: 'btn btn-primary' %>
         <% end %>

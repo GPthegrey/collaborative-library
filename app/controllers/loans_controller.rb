@@ -73,6 +73,19 @@ class LoansController < ApplicationController
     redirect_to loans_path
   end
 
+  def time_extension_request
+    @loan = Loan.find(params[:id])
+  end
+
+  def time_extension_accept
+    @loan = Loan.find(params[:id])
+
+  end
+
+  def time_extension_reject
+    @loan = Loan.find(params[:id])
+  end
+
   private
 
   def set_loan
