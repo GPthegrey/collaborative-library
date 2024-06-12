@@ -6,7 +6,7 @@
             <%= f.input :title, label: 'Titulo', input_html: { class: 'form-control bg-primary-dark border-primary-darker' }%>
             <%= f.input :author, label: 'Autor', input_html: { class: 'form-control bg-primary-dark border-primary-darker' }%>
             <%= f.input :description, label: 'Descripción', input_html: { class: 'form-control bg-primary-dark border-primary-darker' } %>
-            <%= f.input :genre, as: :select, collection: ["Novela", "Policial", "Romantica", "Novela historica", "Ciencia", "Poesia"],  label: 'Categoría', input_html: { class: 'form-select bg-primary-dark border-primary-darker' } %>
+            <%= f.input :genre, as: :select, collection: ["Novela", "Policial", "Romantica", "Novela Historica", "Ciencia", "Poesia"],  label: 'Categoría', input_html: { class: 'form-select bg-primary-dark border-primary-darker' } %>
             <%= f.input :language, as: :select, collection: ["English", "Castellano", "Catalan", "Italiano", "Frances", "Aleman"], label: 'Idioma', input_html: { class: 'form-select bg-primary-dark border-primary-darker' } %>
             <%= f.button :submit, @book.persisted? ? 'Actualizar' : 'Crear', class: 'd-block w-50 m-auto btn btn-secondary-light border-primary-dark my-2' %>
           <% end %>

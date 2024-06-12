@@ -2,8 +2,22 @@ class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
 
   def index
-    @books = Book.all
     @loan = Loan.new
+
+    @search_performed = params[:query].present? || params[:location].present? || params[:genre].present?
+
+    @books = Book.all
+    if params[:query].present?
+      @books = @books.search_by_title_and_author(params[:query])
+    end
+
+    if params[:location].present?
+      @books = @books.near(params[:location], 20)
+    end
+
+    if params[:genre].present?
+      @books = @books.by_genre(params[:genre])
+    end
   end
 
   def show

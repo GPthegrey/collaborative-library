@@ -17,7 +17,7 @@ books = [
     title: "The Catcher in the Rye",
     author: "J.D. Salinger",
     description: "The hero-narrator of The Catcher in the Rye is an ancient child of sixteen, a native New Yorker named Holden Caulfield. Through circumstances that tend to preclude adult, secondhand description, he leaves his prep school in Pennsylvania and goes underground in New York City for three days.",
-    genre: "Fiction",
+    genre: "Novela",
     language: "English",
     user_id: User.first.id,
     status: "Available"
@@ -26,7 +26,7 @@ books = [
     title: "1984",
     author: "George Orwell",
     description: "The story of Winston Smith begins on 4 April 1984: It was a bright cold day in April, and the clocks were striking thirteen. Yet he is uncertain of the true date, given the regime's continual rewriting and manipulation of history. Smith is a diligent and skillful worker, but he secretly hates the Party and dreams of rebellion against Big Brother.",
-    genre: "Fiction",
+    genre: "Novela",
     language: "English",
     user_id: User.first.id,
     status: "Available"
@@ -35,7 +35,7 @@ books = [
     title: "To Kill a Mockingbird",
     author: "Harper Lee",
     description: "The story, told by the six-year-old Jean Louise Finch, takes place during three years (1933–35) of the Great Depression in the fictional town of Maycomb, Alabama, the seat of Maycomb County. Jean Louise Finch, nicknamed Scout, lives with her older brother Jeremy, nicknamed Jem, and their widowed father Atticus, a middle-aged lawyer.",
-    genre: "Fiction",
+    genre: "Novela",
     language: "Spanish",
     user_id: User.first.id,
     status: "Available"
