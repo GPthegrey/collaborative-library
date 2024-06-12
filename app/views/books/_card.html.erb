@@ -6,7 +6,11 @@
     <p class="card-text">Genero: <%= book.genre %></p>
     <p class="card-text">Idioma: <%= book.language %></p>
     <p class="card-text">Usuario: <%= book.user.email %></p>
-    <p class="card-text">Disponibilidad: <%= book.status %></p>
+    <% if book.status == 'Available' %>
+      <p class="card-text text-success">Disponible</p>
+    <% else %>
+      <p class="card-text text-danger">No Disponible hasta <%= book.loans.last.end_date %></p>
+    <% end %>
     <% if book.user == current_user %>
       <%= form_with(model: book, url: book_path(book), method: :delete, class: "d-inline text-end", data: { turbo_confirm: "¿Estás seguro?" }) do |form| %>
         <%= form.button(type: "submit", class: "btn btn-sm") do %>

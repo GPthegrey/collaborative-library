@@ -22,8 +22,6 @@ class LoansController < ApplicationController
     @book = Book.find(params[:book_id])
     if @book.status == 'Available'
       @loan = Loan.new(book_id: @book.id)
-      @loan.start_date = Date.today
-      @loan.end_date = Date.today + 30.days
       @loan.status = 'Pending'
       @loan.owner_id = @book.user_id
       @loan.borrower_id = current_user.id
@@ -56,6 +54,8 @@ class LoansController < ApplicationController
   def accept_loan
     @loan = Loan.find(params[:id])
     @loan.update(status: 'Accepted')
+    @loan.update(start_date: Date.today)
+    @loan.update(end_date: Date.today + 30.days)
     @loan.book.update(status: 'Unavailable')
     redirect_to loans_path
   end

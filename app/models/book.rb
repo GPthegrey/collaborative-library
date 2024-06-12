@@ -1,5 +1,6 @@
 class Book < ApplicationRecord
   belongs_to :user, dependent: :destroy
+  has_many :loans, dependent: :destroy
 
   include PgSearch::Model
   pg_search_scope :search_by_title_and_author,
