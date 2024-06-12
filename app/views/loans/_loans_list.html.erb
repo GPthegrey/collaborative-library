@@ -1,5 +1,7 @@
 <% if loans %>
   <% loans.each do |loan| %>
-    <%= render 'loan', loan: loan %>
+    <%= link_to loan_path(loan) do %>
+      <%= render 'loan', loan: loan %>
+    <% end %>
   <% end %>
 <% end %>

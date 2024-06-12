@@ -1,5 +1,5 @@
 class LoansController < ApplicationController
-  before_action :set_loan, only: %i[show edit update destroy]
+  before_action :set_loan, only: %i[edit update destroy]
 
   def index
     @loans = Loan.where(borrower_id: current_user.id).where(status: 'Active')
@@ -11,6 +11,7 @@ class LoansController < ApplicationController
   end
 
   def show
+    @loan = Loan.find(params[:id])
   end
 
   def new
@@ -37,7 +38,7 @@ class LoansController < ApplicationController
   end
 
   def accept_loan
-    @loan = Loan.find(params[:loan_id])
+    @loan = Loan.find(params[:id])
     @loan.update(status: 'Accepted')
     @loan.book.update(status: 'Unavailable')
     redirect_to loans_path
@@ -60,7 +61,6 @@ class LoansController < ApplicationController
   end
 
   private
-
 
   def set_loan
     @loan = Loan.find(params[:loan_id])

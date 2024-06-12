@@ -77,4 +77,5 @@ group :test do
 end
 
 # to check possible errors in the code
-gem 'byebug'
+gem 'pry'
+gem 'pry-rails'
