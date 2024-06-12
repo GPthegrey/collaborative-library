@@ -76,5 +76,9 @@ group :test do
   gem "selenium-webdriver"
 end
 
-# Use for searching 
+# Use for searching
 gem "pg_search"
+
+gem 'sidekiq', '< 7.0'
+gem 'sidekiq-failures', '~> 1.0'
+gem 'sidekiq-scheduler', '~> 3.0'

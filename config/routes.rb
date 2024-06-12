@@ -22,4 +22,8 @@ Rails.application.routes.draw do
   resources :chatrooms, only: %i[index show create] do
     resources :messages, only: :create
   end
+  require "sidekiq/web"
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end

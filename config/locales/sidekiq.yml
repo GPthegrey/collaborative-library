@@ -1,0 +1,4 @@
+:schedule:
+  check_overdue:
+    cron: "0 0 * * *" # Every day at midnight
+    class: CheckOverdueJob
