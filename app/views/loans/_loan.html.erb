@@ -10,4 +10,7 @@
         <%= render 'accept', loan: loan %>
         <%= render 'reject', loan: loan %>
       <% end %>
+      <% if loan.status == "Accepted" && loan.owner_id == current_user.id %>
+        <%= render 'return', loan: loan %>
+      <% end %>
     </div>

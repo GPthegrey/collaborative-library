@@ -28,7 +28,7 @@ class LoansController < ApplicationController
       @loan.owner_id = @book.user_id
       @loan.borrower_id = current_user.id
       if @loan.save
-        redirect_to profile_path
+        redirect_to loans_path
       else
         render 'new'
       end
@@ -67,7 +67,10 @@ class LoansController < ApplicationController
   end
 
   def return_loan
-
+    @loan = Loan.find(params[:id])
+    @loan.update(status: 'Finalized')
+    @loan.book.update(status: 'Available')
+    redirect_to loans_path
   end
 
   private
