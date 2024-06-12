@@ -18,6 +18,11 @@ class BooksController < ApplicationController
     if params[:genre].present?
       @books = @books.by_genre(params[:genre])
     end
+
+    if params[:language].present?
+      @books = @books.by_language(params[:language])
+    end
+    
   end
 
   def show

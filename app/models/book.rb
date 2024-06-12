@@ -9,5 +9,6 @@ class Book < ApplicationRecord
   }
 
   scope :by_genre, ->(genre) { where(genre: genre) }
+  scope :by_language, ->(language) { where(language: language) }
 
 end

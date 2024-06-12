@@ -1,10 +1,17 @@
 <% genre = ["Novela", "Policial", "Romantica", "Novela Historica", "Ciencia", "Poesia"] %>
+<% language = ["English", "Castellano", "Catalan", "Italiano", "Frances", "Aleman"] %>
 <%= simple_form_for :search, url: books_path, method: :get, class: 'display-flex' do |f| %>
   <div class="search-form-control form-group">
-    <%= select_tag :genre,
-      options_for_select([["Genero", ""], *genre.map { |g| [g, g] }]),
-      class: "form-control rounded bg-primary border-primary-darker"
-    %>
+    <div class="flex-container">
+      <%= select_tag :genre,
+        options_for_select([["Genero", ""], *genre.map { |g| [g, g] }]),
+        class: "form-control rounded bg-primary border-primary-darker"
+      %>
+      <%= select_tag :language,
+        options_for_select([["Idioma", ""], *language.map { |l| [l, l] }]),
+        class: "form-control rounded bg-primary border-primary-darker"
+      %>
+    </div>
     <%= text_field_tag :query, params[:query], class: "form-control rounded border-primary-darker", placeholder: "Buscar" %>
     <%= text_field_tag :location,
         params[:location],
