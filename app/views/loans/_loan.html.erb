@@ -8,5 +8,6 @@
       </div>
       <% if loan.status == "Pending" && loan.owner_id == current_user.id %>
         <%= render 'accept', loan: loan %>
+        <%= render 'reject', loan: loan %>
       <% end %>
     </div>

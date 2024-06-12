@@ -2,10 +2,10 @@ class LoansController < ApplicationController
   before_action :set_loan, only: %i[edit update destroy]
 
   def index
-    @loans = Loan.where(borrower_id: current_user.id).where(status: 'Active')
+    @loans = Loan.where(borrower_id: current_user.id).where(status: 'Accepted')
     @requested_loans = Loan.where(borrower_id: current_user.id).where(status: 'Pending')
     @loans_pending = Loan.where(owner_id: current_user.id).where(status: 'Pending')
-    @books_leant = Loan.where(owner_id: current_user.id).where.not(status: 'Pending')
+    @books_leant = Loan.where(owner_id: current_user.id).where(status: 'Accepted')
     @overdue_loans_borrower = Loan.where(borrower_id: current_user.id).where(status: 'overdue')
     @overdue_loans_owner = Loan.where(owner_id: current_user.id).where(status: 'overdue')
   end
@@ -37,13 +37,6 @@ class LoansController < ApplicationController
     end
   end
 
-  def accept_loan
-    @loan = Loan.find(params[:id])
-    @loan.update(status: 'Accepted')
-    @loan.book.update(status: 'Unavailable')
-    redirect_to loans_path
-  end
-
   def edit
   end
 
@@ -58,6 +51,23 @@ class LoansController < ApplicationController
   def destroy
     @loan.destroy
     redirect_to loans_path
+  end
+
+  def accept_loan
+    @loan = Loan.find(params[:id])
+    @loan.update(status: 'Accepted')
+    @loan.book.update(status: 'Unavailable')
+    redirect_to loans_path
+  end
+
+  def reject_loan
+    @loan = Loan.find(params[:id])
+    @loan.update(status: 'Rejected')
+    redirect_to loans_path
+  end
+
+  def return_loan
+
   end
 
   private

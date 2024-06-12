@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :loans, except: %i[new create]
   patch 'loans/:id/accept_loan', to: 'loans#accept_loan', as: :accept_loan
+  patch 'loans/:id/reject_loan', to: 'loans#reject_loan', as: :reject_loan
 
   get 'mybooks', to: 'books#my_books', as: :mybooks
   resources :reviews, only: [:create]

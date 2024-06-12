@@ -76,6 +76,4 @@ group :test do
   gem "selenium-webdriver"
 end
 
-# to check possible errors in the code
-gem 'pry'
-gem 'pry-rails'
+
