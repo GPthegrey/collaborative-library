@@ -9,4 +9,8 @@ class Loan < ApplicationRecord
     end
   end
 
+  def block_user
+    user.update(blocked: true)
+  end
+
 end

@@ -18,8 +18,12 @@
         <% end %>
       <% end %>
     <% else %>
-      <%= simple_form_for([book, @loan]) do |f| %>
-      <%= f.submit %>
+      <% if current_user.blocked == 'false' %>
+        <%= simple_form_for([book, @loan]) do |f| %>
+        <%= f.submit 'Solicitar en Prestamo', class: 'btn btn-primary' %>
+        <% end %>
+      <% else %>
+        <p class="card-text text-danger">Usuario Bloqueado. Devuelva los libros pendientes para habilitar nuevos prestamos</p>
       <% end %>
     <% end %>
   </div>
