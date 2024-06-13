@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   patch 'loans/:id/accept_loan', to: 'loans#accept_loan', as: :accept_loan
   patch 'loans/:id/reject_loan', to: 'loans#reject_loan', as: :reject_loan
   patch 'loans/:id/return_loan', to: 'loans#return_loan', as: :return_loan
+  patch 'loans/:id/extension_request', to: 'loans#extension_request', as: :extension_request
+  patch 'loans/:id/extension_accept', to: 'loans#extension_accept', as: :extension_accept
+  patch 'loans/:id/extension_reject', to: 'loans#extension_reject', as: :extension_reject
 
   get 'mybooks', to: 'books#my_books', as: :mybooks
   resources :reviews, only: [:create]

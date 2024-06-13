@@ -1,0 +1,4 @@
+<%= simple_form_for loan, url: extension_reject_path(loan), method: :patch do |f| %>
+  <%= f.hidden_field :loan_id, value: loan.id %>
+  <%= f.button :submit, "Rechazar extension", class: 'btn btn-success my-2' %>
+<% end %>

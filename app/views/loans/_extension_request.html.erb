@@ -1,0 +1,4 @@
+<%= simple_form_for loan, url: extension_request_path(loan), method: :patch do |f| %>
+  <%= f.hidden_field :loan_id, value: loan.id %>
+  <%= f.button :submit, "Solicitar extension", class: 'btn btn-primary my-2' %>
+<% end %>

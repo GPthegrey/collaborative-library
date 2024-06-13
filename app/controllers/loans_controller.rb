@@ -1,5 +1,5 @@
 class LoansController < ApplicationController
-  before_action :set_loan, only: %i[edit update destroy]
+  before_action :set_loan, only: %i[show edit update destroy accept_loan reject_loan return_loan extension_request extension_accept extension_reject]
 
   def index
     @loans = Loan.where(borrower_id: current_user.id).where(status: 'Accepted')
@@ -11,7 +11,6 @@ class LoansController < ApplicationController
   end
 
   def show
-    @loan = Loan.find(params[:id])
   end
 
   def new
@@ -52,7 +51,6 @@ class LoansController < ApplicationController
   end
 
   def accept_loan
-    @loan = Loan.find(params[:id])
     @loan.update(status: 'Accepted')
     @loan.update(start_date: Date.today)
     @loan.update(end_date: Date.today + 30.days)
@@ -61,34 +59,33 @@ class LoansController < ApplicationController
   end
 
   def reject_loan
-    @loan = Loan.find(params[:id])
     @loan.update(status: 'Rejected')
     redirect_to loans_path
   end
 
   def return_loan
-    @loan = Loan.find(params[:id])
     @loan.update(status: 'Finalized')
     @loan.book.update(status: 'Available')
     redirect_to loans_path
   end
 
-  def time_extension_request
-    @loan = Loan.find(params[:id])
+  def extension_request
+    @loan.update(extension: 'Extension Requested')
   end
 
-  def time_extension_accept
-    @loan = Loan.find(params[:id])
-
+  def extension_accept
+    @loan.update(extension: 'Extension Accepted')
+    @loan.update(end_date: @loan.end_date + 15.days)
+    redirect_to loans_path
   end
 
-  def time_extension_reject
-    @loan = Loan.find(params[:id])
+  def extension_reject
+    @loan.update(extension: 'Extension Rejected')
   end
 
   private
 
   def set_loan
-    @loan = Loan.find(params[:loan_id])
+    @loan = Loan.find(params[:id])
   end
 end
