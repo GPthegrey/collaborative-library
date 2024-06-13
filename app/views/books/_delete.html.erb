@@ -1,0 +1,5 @@
+<%= form_with(model: book, url: book_path(book), method: :delete, class: "d-inline text-end", data: { turbo_confirm: "¿Estás seguro?" }) do |form| %>
+        <%= form.button(type: "submit", class: "btn btn-sm") do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+      <% end %>

@@ -1,20 +1,22 @@
 <div class='container'>
-  <h1>Prestamos</h1>
+  <h2>Mis Prestamos</h2>
 
-  <h3>Activos</h3>
+  <h4>Activos</h4>
   <%= render 'loans_list', loans: @loans %>
-  <h3>Pendientes de aceptacion por el dueno</h3>
+  <h4>Pendientes</h4>
   <%= render 'loans_list', loans: @requested_loans %>
-  <h3>Overdue</h3>
+  <h4>Vencidos</h4>
   <%= render 'loans_list', loans: @overdue_loans_borrower %>
 </div>
 
 <div class='container'>
-  <h3>Solicitud de prestamos recibidas</h1>
+  <h2>Mis Libros Prestados</h2>
+
+  <h4>Solicitud de prestamos</h4>
   <%= render 'loans_list', loans: @loans_pending %>
-  <h3>Libros prestados</h1>
+  <h4>Libros prestados</h4>
   <%= render 'loans_list', loans: @books_leant %>
-  <h3>Prestados con overdue</h3>
+  <h4>Vencidos</h4>
   <%= render 'loans_list', loans: @overdue_loans_owner %>
 
 </div>

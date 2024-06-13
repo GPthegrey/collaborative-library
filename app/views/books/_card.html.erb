@@ -12,17 +12,13 @@
       <p class="card-text text-danger">No Disponible hasta <%= book.loans.last.end_date %></p>
     <% end %>
     <% if book.user == current_user %>
-      <%= form_with(model: book, url: book_path(book), method: :delete, class: "d-inline text-end", data: { turbo_confirm: "¿Estás seguro?" }) do |form| %>
-        <%= form.button(type: "submit", class: "btn btn-sm") do %>
-          <i class="fas fa-trash"></i>
-        <% end %>
-      <% end %>
+      <%= render 'delete', book: book %>
     <% else %>
-      <% if current_user.blocked == false %>
+      <% if current_user.blocked == false && book.status == 'Available' %>
         <%= simple_form_for([book, @loan]) do |f| %>
         <%= f.submit 'Solicitar en Prestamo', class: 'btn btn-primary' %>
         <% end %>
-      <% else %>
+      <% elsif current_user.blocked == true %>
         <p class="card-text text-danger">Usuario Bloqueado. Devuelva los libros pendientes para habilitar nuevos prestamos</p>
       <% end %>
     <% end %>
