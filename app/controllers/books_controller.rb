@@ -53,6 +53,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.user = current_user
+    @book.address = current_user.address
     @book.rating = 0
     @book.status = 'Available'
     if @book.save
