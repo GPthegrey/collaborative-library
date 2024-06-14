@@ -3,6 +3,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: auto;
 }
 
 /* Book spine styling */
@@ -11,8 +12,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 200px; /* Adjusted width to make it more visible */
-  height: 300px; /* Adjusted height for better visibility */
+  width: 140px; /* Adjusted width to make it more visible */
+  height: 200px; /* Adjusted height for better visibility */
   margin: 20px;
   padding: 10px; /* Reduced padding */
   background-color: #f8f8f8;
@@ -39,4 +40,54 @@
 
 .link {
   text-decoration: none;
+}
+
+.fa-circle-check {
+  color: #5cb85c;
+}
+
+.fa-circle-xmark {
+  color: #d9534f;
+}
+
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
