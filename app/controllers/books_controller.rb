@@ -22,7 +22,9 @@ class BooksController < ApplicationController
     if params[:language].present?
       @books = @books.by_language(params[:language])
     end
-    
+
+    @books = @books.order(:author) # Sorting alphabetically by author
+
   end
 
   def show

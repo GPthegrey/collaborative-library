@@ -1,5 +1,7 @@
 <%= link_to :back, class: 'h2 text-primary-darker align-self-start' do %>
   <i class="fa-solid fa-arrow-left ps-3 pt-3"></i>
-<%end%>
+<% end %>
 <h1>Todos los libros</h1>
-<%= render 'list', books: @books %>
+<div class="container-index">
+  <%= render 'list', books: @books %>
+</div>

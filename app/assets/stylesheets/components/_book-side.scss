@@ -1,0 +1,42 @@
+/* Ensure container styles */
+.container-index {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Book spine styling */
+.book-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px; /* Adjusted width to make it more visible */
+  height: 300px; /* Adjusted height for better visibility */
+  margin: 20px;
+  padding: 10px; /* Reduced padding */
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: rotate(-90deg); /* Rotate to mimic the spine */
+  transform-origin: left bottom; /* Rotate around the bottom-left corner */
+  box-sizing: border-box; /* Ensure padding and border are included in size */
+}
+
+/* Title and author styling */
+.book-side__title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 5px; /* Adjusted margin */
+  text-align: center; /* Ensure centered text */
+}
+
+.book-side__author {
+  font-size: 1em;
+  margin-bottom: 5px; /* Adjusted margin */
+  text-align: center; /* Ensure centered text */
+}
+
+.link {
+  text-decoration: none;
+}
