@@ -15,7 +15,7 @@ gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem "importmap-rails"
+gem "importmap-rails", "~> 1.2.3"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
@@ -79,6 +79,12 @@ end
 # Use for searching
 gem "pg_search"
 
+# User for actions in the background
 gem 'sidekiq', '< 7.0'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'sidekiq-scheduler', '~> 3.0'
+
+# Use for geocoding/map
+gem "geocoder"
+
+# Use for displaying the map

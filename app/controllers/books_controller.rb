@@ -7,6 +7,17 @@ class BooksController < ApplicationController
     @search_performed = params[:query].present? || params[:location].present? || params[:genre].present?
 
     @books = Book.all
+
+    @markers = @books.geocoded.map do |book|
+      {
+        lat: book.latitude,
+        lng: book.longitude,
+        info_window_html: render_to_string(partial: "books/info_window", locals: {book: book}),
+        marker_html: render_to_string(partial: "marker", locals: {book: book})
+
+      }
+    end
+
     if params[:query].present?
       @books = @books.search_by_title_and_author(params[:query])
     end
