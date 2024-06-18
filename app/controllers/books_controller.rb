@@ -3,6 +3,7 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
 
   def index
+
     @loan = Loan.new
 
     @search_performed = params[:query].present? || params[:location].present? || params[:genre].present?
