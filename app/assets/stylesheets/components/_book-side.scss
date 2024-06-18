@@ -1,93 +1,59 @@
-/* Ensure container styles */
 .container-index {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: auto;
+  justify-content: space-between;
+  max-width: 1200px;
+  box-sizing: border-box; /* Ensures padding is included in the width calculation */
 }
 
-/* Book spine styling */
+.book-list {
+  width: 75%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Use grid for layout */
+  grid-gap: 15px; /* Gap between the grid items */
+  align-items: start; /* Align books to the top of the container */
+  box-sizing: border-box;
+}
+
+.map-container {
+  width: 25%;
+  height: 600px;
+}
+
 .book-side {
+  width: 100%; /* Adjust width to simulate book spine width */
+  height: 100%; /* Adjust height to simulate book spine height */
+  background-color: #f4f4f4; /* Background color for the book spine */
+  border: 1px solid #ddd; /* Border for the book spine */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 140px; /* Adjusted width to make it more visible */
-  height: 200px; /* Adjusted height for better visibility */
-  margin: 20px;
-  padding: 10px; /* Reduced padding */
-  background-color: #f8f8f8;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transform: rotate(-90deg); /* Rotate to mimic the spine */
-  transform-origin: left bottom; /* Rotate around the bottom-left corner */
-  box-sizing: border-box; /* Ensure padding and border are included in size */
+  text-align: center;
+  padding: 10px;
+  margin: auto; /* Center the book within the grid cell */
+  transform: rotate(-90deg); /* Rotate to simulate the book spine */
+  transform-origin: bottom left; /* Adjust origin to keep the rotation in place */
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden;
 }
 
-/* Title and author styling */
-.book-side__title {
-  font-size: 1.2em;
+.book-side h5 {
+  margin: 5px 0;
+  font-size: 1rem; /* Adjust font size to fit the spine */
+}
+
+.book-side-author {
   font-weight: bold;
-  margin-bottom: 5px; /* Adjusted margin */
-  text-align: center; /* Ensure centered text */
 }
 
-.book-side__author {
-  font-size: 1em;
-  margin-bottom: 5px; /* Adjusted margin */
-  text-align: center; /* Ensure centered text */
+.book-side-title {
+  font-style: italic;
 }
 
 .link {
-  text-decoration: none;
-}
-
-.fa-circle-check {
-  color: #5cb85c;
-}
-
-.fa-circle-xmark {
-  color: #d9534f;
-}
-
-
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-}
-
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0; /* Remove margin to ensure proper grid spacing */
 }

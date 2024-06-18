@@ -1,7 +1,7 @@
 <%= link_to book_path(book), class:'link' do %>
   <div class='book-side card-category'>
     <h5 class='book-side-author'><%= book.author %></h5>
-    <h5 class='.book-side-title'><%= book.title %></h5>
+    <h5 class='book-side-title'><%= book.title %></h5>
     <% if book.status == 'Available' %>
       <i class="fa-solid fa-circle-check"></i>
     <% else %>
