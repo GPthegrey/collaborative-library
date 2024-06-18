@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   patch 'loans/:id/extension_reject', to: 'loans#extension_reject', as: :extension_reject
 
   get 'mybooks', to: 'books#my_books', as: :mybooks
+  get 'book_search', to: 'books#book_search', as: :book_search
   resources :reviews, only: [:create]
   resources :events
   resources :bookclubs

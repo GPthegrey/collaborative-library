@@ -44,6 +44,18 @@ class BooksController < ApplicationController
     @loan = Loan.new
   end
 
+  def book_search
+    if params[:query].present?
+      service = GoogleBooksService.new(ENV['GOOGLE_BOOKS_API_KEY'])
+      @books = service.search_books(params[:query])['items']
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @books }
+    end
+  end
+
   def my_books
     @books = Book.where(user_id: current_user.id)
   end
