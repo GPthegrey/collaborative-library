@@ -1,6 +1,8 @@
 <h1>Bienvenidos a la Biblioteca de Babel</h1>
 <p>Aqui encontraras todos los libros, clubes literarios  y eventos que un lector necesita </p>
 
+<%= render 'shared/toast', message: 'Gracias por elegirnos!' %>
+
 <ul class='list-group'>
   <li class='list-group-item'><%= link_to 'Todos los libros', books_path, class:'link' %></li>
   <li class='list-group-item'><%= link_to 'Buscar libros disponibles en Google', book_search_path, class:'link' %></li>
