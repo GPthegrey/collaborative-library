@@ -8,6 +8,8 @@ class UsersController < ApplicationController
     @user = current_user
     @books = Book.where(user: @user)
     @loans = Loan.where(borrower_id: @user.id)
+    @reviews = Review.where(user_reviewed_id: @user.id)
+    @rating = Review.where(user_reviewed_id: @user.id).average(:rating)
   end
 
   def create

@@ -11,10 +11,11 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-6">
-              <p class="lead"><strong>Nombre:</strong> </p>
+              <p class="lead"><strong>Nombre:</strong> <%= @user.nickname %></p>
               <p class="lead"><strong>Email:</strong> <%= @user.email %></p>
-              <p class="lead"><strong>Rating:  <i class="fa-solid fa-star"></i> </p>
-              <p class="lead"><strong>Ubicación:</strong> </p>
+              <p class="lead"><strong>Ubicación:</strong> <%= @user.address %></p>
+              <p class="lead"><strong>Rating:  <i class="fa-solid fa-star"></i> <%= @rating %></p>
+              <%= render 'reviews/reviews', reviews: @reviews %>
             </div>
           </div>
         </div>
