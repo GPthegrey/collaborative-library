@@ -11,6 +11,7 @@
               <p class="lead"><strong>Nombre:</strong> <%= @user.email.split("@").first %></p>
               <p class="lead"><strong>Rating: <%= @rating.nil? ? 'Sin reseñas' : @rating %> <i class="fa-solid fa-star"></i></strong></p>
               <p class="lead"><strong>Ubicación:</strong> </p>
+              <%= render 'reviews/reviews', reviews: @reviews %>
             </div>
           </div>
         </div>

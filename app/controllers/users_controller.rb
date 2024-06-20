@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @books = Book.where(user: @user)
+    @reviews = Review.where(user_reviewed_id: @user.id)
+    @rating = Review.where(user_reviewed_id: @user.id).average(:rating)
   end
 
   def profile

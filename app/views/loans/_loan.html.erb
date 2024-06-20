@@ -10,7 +10,9 @@
     <% elsif loan.status == 'Overdue' %>
       <p class="card-text text-danger">Estado: Vencido. Devolver!</p>
     <% end %>
-    <p class="card-text">Dueno: <%= loan.book.user.email %></p>
+    <%= link_to user_path(loan.book.user) do %>
+      <p class="card-text">Dueno: <%= loan.book.user.email %></p>
+    <% end %>
   </div>
 
   <% if loan.status == "Pending" && loan.owner_id == current_user.id %>

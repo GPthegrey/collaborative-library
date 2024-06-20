@@ -5,7 +5,9 @@
     <p class="card-text">Descripcion: <%= book.description %></p>
     <p class="card-text">Genero: <%= book.genre %></p>
     <p class="card-text">Idioma: <%= book.language %></p>
+    <%= link_to user_path(book.user) do %>
     <p class="card-text">Usuario: <%= book.user.email %></p>
+    <% end %>
     <% if book.status == 'Available' %>
       <p class="card-text text-success">Disponible</p>
     <% else %>
