@@ -35,8 +35,12 @@
     <%= render 'extension_reject', loan: loan %>
   <% end %>
 
-  <% if loan.status == 'Completed' %>
-    <%= render 'reviews/form', loan: loan %>
+<% if loan.status == 'Completed' %>
+  <% if @rev_review.nil? %>
+      <%= render 'reviews/form', loan: loan %>
+    <% else %>
+      <p class='text-primary'><strong>Gracias por dejar tu reseña</strong></p>
+    <% end %>
     <% if loan.reviews.any? %>
       <%= render 'reviews/reviews', reviews: loan.reviews %>
     <% end %>

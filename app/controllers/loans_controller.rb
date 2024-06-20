@@ -14,10 +14,13 @@ class LoansController < ApplicationController
 
     @review = Review.new
 
+
   end
 
   def show
     @review = Review.new
+    @rev_review = @loan.reviews.where(user_reviewer: current_user)
+
   end
 
   def new
