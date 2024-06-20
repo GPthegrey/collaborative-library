@@ -1,0 +1,12 @@
+<div class='card'>
+  <div class='card-body'>
+     <h5 class="card-title">Titulo: <%= bookclub.name %></h5>
+      <p class='card-text'>Tipo: <%= bookclub.genre %></p>
+      <p class='card-text'> Descripcion: <%= bookclub.description %></p>
+      <p class='card-text'> Numero de miembros <%= bookclub.max_members %></p>
+      <p class='card-text'> Privacidad <%= bookclub.privacy %></p>
+      <p class='card-text'> Donde?? <%= bookclub.location %></p>
+      <p class='card-text'> Fecha y hora: <%= bookclub.meeting_schedule %></p>
+      <p class='card-text'>Organiza: <%= User.find(bookclub.organizer_id).email %></p>
+  </div>
+</div>

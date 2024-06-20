@@ -3,7 +3,7 @@ class BookclubsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
 
   def index
-    @bookclub = Bookclub.all
+    @bookclubs = Bookclub.all
   end
 
   def show
