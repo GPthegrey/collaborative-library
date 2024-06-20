@@ -1,15 +1,13 @@
 <%= simple_form_for @review do |f| %>
   <%= f.hidden_field :loan_id, value: loan.id %>
   <div class="field">
-    <%= f.label :rating %>
-    <%= f.text_field :rating %>
+    <%= f.input :rating, as: :integer %> <!-- Corrected this line to use f.input instead of f.integer -->
   </div>
   <div class="field">
     <%= f.label :comment %>
-    <%= f.rich_text_area :comment, class: "form-control" %>
+    <%= f.text_field :comment, class: "form-control" %>
   </div>
   <div class="field my-2">
-    <%= f.submit "Postear comentario", class: "btn btn-primary" %>
     <%= button_tag(type: :submit, class: "btn btn-primary") do %>
       <i class="bi bi-send-fill"></i>
       Publicar

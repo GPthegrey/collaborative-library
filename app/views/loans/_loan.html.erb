@@ -35,5 +35,8 @@
 
   <% if loan.status == 'Completed' %>
     <%= render 'reviews/form', loan: loan %>
+    <% if loan.reviews.any? %>
+      <%= render 'reviews/reviews', reviews: loan.reviews %>
+    <% end %>
   <% end %>
 </div>
