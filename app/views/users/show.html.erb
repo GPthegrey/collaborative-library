@@ -21,6 +21,8 @@
 </div>
 
 <div class='container'>
-
   <h1>Libros de <%= @user.email.split("@").first %></h1>
+  <div>
+      <%= render 'books/list', books: @books %>
+  </div>
 </div>
