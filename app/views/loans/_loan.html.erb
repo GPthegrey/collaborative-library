@@ -32,4 +32,8 @@
     <%= render 'extension_accept', loan: loan %>
     <%= render 'extension_reject', loan: loan %>
   <% end %>
+
+  <% if loan.status == 'Completed' %>
+    <%= render 'reviews/form', loan: loan %>
+  <% end %>
 </div>
