@@ -7,6 +7,8 @@
   <%= render 'loans_list', loans: @requested_loans %>
   <h4>Vencidos</h4>
   <%= render 'loans_list', loans: @overdue_loans_borrower %>
+  <h4>Finalizados</h4>
+  <%= render 'loans_list', loans: @completed_loans_borrower %>
 </div>
 
 <div class='container'>
@@ -18,5 +20,7 @@
   <%= render 'loans_list', loans: @books_leant %>
   <h4>Vencidos</h4>
   <%= render 'loans_list', loans: @overdue_loans_owner %>
+  <h4>Finalizados</h4>
+  <%= render 'loans_list', loans: @completed_loans %>
 
 </div>

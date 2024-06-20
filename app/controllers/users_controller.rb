@@ -2,12 +2,16 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @books = Book.where(user: @user)
+    @reviews = Review.where(user_reviewed_id: @user.id)
+    @rating = Review.where(user_reviewed_id: @user.id).average(:rating)
   end
 
   def profile
     @user = current_user
     @books = Book.where(user: @user)
     @loans = Loan.where(borrower_id: @user.id)
+    @reviews = Review.where(user_reviewed_id: @user.id)
+    @rating = Review.where(user_reviewed_id: @user.id).average(:rating)
   end
 
   def create

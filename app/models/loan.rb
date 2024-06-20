@@ -1,5 +1,6 @@
 class Loan < ApplicationRecord
   belongs_to :book
+  has_many :reviews
 
   def self.check_overdue
     overdue_loans = where('end_date < ?', Date.today)

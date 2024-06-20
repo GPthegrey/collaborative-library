@@ -10,7 +10,9 @@
     <% elsif loan.status == 'Overdue' %>
       <p class="card-text text-danger">Estado: Vencido. Devolver!</p>
     <% end %>
-    <p class="card-text">Dueno: <%= loan.book.user.email %></p>
+    <%= link_to user_path(loan.book.user) do %>
+      <p class="card-text">Dueno: <%= loan.book.user.email %></p>
+    <% end %>
   </div>
 
   <% if loan.status == "Pending" && loan.owner_id == current_user.id %>
@@ -31,5 +33,16 @@
   <% if loan.extension == 'Extension Requested' && loan.owner_id == current_user.id %>
     <%= render 'extension_accept', loan: loan %>
     <%= render 'extension_reject', loan: loan %>
+  <% end %>
+
+<% if loan.status == 'Completed' %>
+  <% if @rev_review.nil? %>
+      <%= render 'reviews/form', loan: loan %>
+    <% else %>
+      <p class='text-primary'><strong>Gracias por dejar tu reseña</strong></p>
+    <% end %>
+    <% if loan.reviews.any? %>
+      <%= render 'reviews/reviews', reviews: loan.reviews %>
+    <% end %>
   <% end %>
 </div>

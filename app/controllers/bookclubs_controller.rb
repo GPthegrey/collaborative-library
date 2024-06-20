@@ -14,11 +14,13 @@ class BookclubsController < ApplicationController
   end
 
   def create
-    @bookclub = Bookclub.new(book_params)
+    @bookclub = Bookclub.new(bookclub_params)
+    @bookclub.organizer_id = current_user.id
+
     if @bookclub.save
-      redirect_to @bookclub
+      redirect_to @bookclub, notice: 'Club de lectura creado correctamente'
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -40,8 +42,8 @@ class BookclubsController < ApplicationController
 
   private
 
-  def book_params
-    params.require(:bookclub).permit(:name, :description, :privacy)
+  def bookclub_params
+    params.require(:bookclub).permit(:name, :description, :location, :max_members, :privacy, :genre, :meeting_schedule)
   end
 
   def set_bookclub

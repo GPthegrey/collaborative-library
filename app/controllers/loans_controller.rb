@@ -5,12 +5,22 @@ class LoansController < ApplicationController
     @loans = Loan.where(borrower_id: current_user.id).where(status: 'Accepted')
     @requested_loans = Loan.where(borrower_id: current_user.id).where(status: 'Pending')
     @loans_pending = Loan.where(owner_id: current_user.id).where(status: 'Pending')
+    @completed_loans_borrower = Loan.where(borrower_id: current_user.id).where(status: 'Completed')
+
     @books_leant = Loan.where(owner_id: current_user.id).where(status: 'Accepted')
-    @overdue_loans_borrower = Loan.where(borrower_id: current_user.id).where(status: 'overdue')
     @overdue_loans_owner = Loan.where(owner_id: current_user.id).where(status: 'overdue')
+    @overdue_loans_borrower = Loan.where(borrower_id: current_user.id).where(status: 'overdue')
+    @completed_loans = Loan.where(owner_id: current_user.id).where(status: 'Completed')
+
+    @review = Review.new
+
+
   end
 
   def show
+    @review = Review.new
+    @rev_review = @loan.reviews.where(user_reviewer: current_user)
+
   end
 
   def new
