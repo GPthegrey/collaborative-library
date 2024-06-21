@@ -1,4 +1,5 @@
 class UserMailer < ApplicationMailer
+  default from: 'bibliotecababel@mail.com'
 
   def hello(user)
     @user = user
