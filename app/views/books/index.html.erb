@@ -1,14 +1,17 @@
-<%= link_to :back, class: 'h2 text-primary-darker align-self-start' do %>
-  <i class="fa-solid fa-arrow-left ps-3 pt-3"></i>
-<% end %>
-<h1>Todos los libros</h1>
-<div class="container-index">
-  <div class="book-list">
-    <%= render 'list', books: @books %>
-  </div>
-  <div class="map-container"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+<%= render 'shared/banner' %>
+<div class="container">
+  <%= link_to :back, class: 'h2 text-primary-darker align-self-start' do %>
+    <i class="fa-solid fa-arrow-left ps-3 pt-3"></i>
+  <% end %>
+  <h1>Todos los libros</h1>
+  <div class="container-index">
+    <div class="book-list">
+      <%= render 'list', books: @books %>
+    </div>
+    <div class="map-container"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 </div>

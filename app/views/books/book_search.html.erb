@@ -1,16 +1,18 @@
-<h1>Buscar Libros en Google</h1>
-<%= form_with url: books_path, method: :get, local: true, id: "book-search-form", data: { controller: "book-search", action: "submit->book-search#search" } do |form| %>
-  <%= form.text_field :query, placeholder: "Search for books..." %>
-  <%= form.submit "Search" %>
-<% end %>
-
-<div id="books-results" data-target="book-search.results">
-  <% if @books.present? %>
-    <% @books.each do |book| %>
-      <div class="book">
-        <h2><%= book['volumeInfo']['title'] %></h2>
-        <p><%= book['volumeInfo']['description'] %></p>
-      </div>
-    <% end %>
+<div class="container mt-3">
+  <%= render 'shared/toast', message: 'Aprovecha nuestra integracion con Google books!'%>
+  <%= form_with url: books_path, method: :get, local: true, id: "book-search-form", data: { controller: "book-search", action: "submit->book-search#search" } do |form| %>
+    <%= form.text_field :query, placeholder: "Buscar libros en Google.." %>
+    <%= form.submit "Search" %>
   <% end %>
+
+  <div id="books-results" data-target="book-search.results">
+    <% if @books.present? %>
+      <% @books.each do |book| %>
+        <div class="book">
+          <h2><%= book['volumeInfo']['title'] %></h2>
+          <p><%= book['volumeInfo']['description'] %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>

@@ -1,6 +1,8 @@
-<h1>Libros de <%= current_user.email %></h1>
-<%= render 'list', books: @books %>
-<div>
-  <%= link_to 'Nuevo libro', new_book_path, class: 'btn btn-primary' %>
-  <%= link_to 'Todos los libros', books_path, class: 'btn btn-success' %>
+<div class="container">
+  <h1>Libros de <%= current_user.email %></h1>
+  <%= render 'list', books: @books %>
+  <div>
+    <%= link_to 'Nuevo libro', new_book_path, class: 'btn btn-primary' %>
+    <%= link_to 'Todos los libros', books_path, class: 'btn btn-success' %>
+  </div>
 </div>
