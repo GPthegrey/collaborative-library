@@ -1,0 +1,16 @@
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card rounded-3 shadow mt-3 bg-primary">
+      <div class="card-body">
+        <%= simple_form_for(@event) do |f| %>
+          <%= f.input :title %>
+          <%= f.input :description %>
+          <%= f.input :address %>
+          <%= f.input :max_assistants, as: :integer, input_html: { min: 3 } %>
+          <%= f.input :privacy, collection: ['Public', 'Private'], prompt: 'Select Privacy' %>
+          <%= f.button :submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

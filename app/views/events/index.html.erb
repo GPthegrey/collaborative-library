@@ -1,3 +1,5 @@
 <div class="container">
   <h1>Eventos literarios</h1>
+  <%= link_to 'Crear Evento', new_event_path, class:'btn btn-success my-2' %>
+  <%= render 'events/list', events: @events %>
 </div>

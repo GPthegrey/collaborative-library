@@ -1,9 +1,13 @@
 <%= render 'shared/banner' %>
 <%= render 'shared/toast', message: 'Gracias por elegirnos!' %>
 
-<ul class='list-group'>
-  <li class='list-group-item'><%= link_to 'Todos los libros', books_path, class:'link' %></li>
-  <li class='list-group-item'><%= link_to 'Buscar libros disponibles en Google', book_search_path, class:'link' %></li>
-  <li class='list-group-item'><%= link_to 'Clubes de lectura', bookclubs_path, class:'link' %></li>
-  <li class='list-group-item'><%= link_to 'Eventos literarios', events_path, class:'link' %></li>
-</ul>
+<div class="container">
+  <div class="list">
+    <ul>
+      <li class='list-options'><%= link_to 'Todos los libros', books_path, class:'link' %></li>
+      <li class='list-options'><%= link_to 'Buscar libros disponibles en Google', book_search_path, class:'link' %></li>
+      <li class='list-options'><%= link_to 'Clubes de lectura', bookclubs_path, class:'link' %></li>
+      <li class='list-options'><%= link_to 'Eventos literarios', events_path, class:'link' %></li>
+    </ul>
+  </div>
+</div>

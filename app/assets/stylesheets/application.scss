@@ -17,6 +17,7 @@
 
 body {
   margin-bottom: $footer-height;
+  background-color: antiquewhite;
 }
 .height-screen{
 height: calc(100vh - $footer-height - $nav-height);

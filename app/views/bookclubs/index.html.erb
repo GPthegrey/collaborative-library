@@ -1,5 +1,5 @@
 <div class="container">
   <h1>Clubes de lectura</h1>
-  <%= link_to 'Crear club de lectura', new_bookclub_path %>
+  <%= link_to 'Crear club de lectura', new_bookclub_path, class:'btn btn-success my-2' %>
   <%= render 'bookclubs/list', bookclubs: @bookclubs %>
 </div>

@@ -8,8 +8,7 @@ $breakpoint-mobile: 768px;
   bottom: 0;
   width: 100%;
   height: $footer-height;
-  display: none; // Default to hidden on larger screens
-
+  display: none;
   a {
     text-decoration: none;
     opacity: 0.8;
@@ -19,12 +18,13 @@ $breakpoint-mobile: 768px;
   }
 }
 
-// Styles for desktop-only footer
 .desktop-only.footer {
   height: $footer-height;
   width: 100%;
+  position: fixed;
+  bottom: 0;
   background-color: #6C828C;
-  display: none; // Default to hidden on smaller screens
+  display: none;
   align-items: center;
   justify-content: space-between;
   padding: 0px 50px;

@@ -1,4 +1,21 @@
-.list-group-item {
+
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.list-options {
+  text-decoration: none;
+  color: #000;
+  font-size: 20px;
+}
+
+a {
+  color: #000;
   text-decoration: none;
 }
 // Specific CSS for your home-page
+.container {
+  margin-top: 20px;
+}
