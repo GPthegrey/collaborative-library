@@ -17,24 +17,16 @@
 .map-container {
   width: 25%;
   height: 600px;
+  margin: 0 20px;
 }
 
 .book-side {
   width: 100%; /* Adjust width to simulate book spine width */
-  height: 100%; /* Adjust height to simulate book spine height */
+  height: 200px; /* Adjust height to simulate book spine height */
   background-color: #f4f4f4; /* Background color for the book spine */
   border: 1px solid #ddd; /* Border for the book spine */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  padding: 10px;
-  margin: auto; /* Center the book within the grid cell */
-  transform: rotate(-90deg); /* Rotate to simulate the book spine */
-  transform-origin: bottom left; /* Adjust origin to keep the rotation in place */
-  white-space: nowrap; /* Prevent text wrapping */
-  overflow: hidden;
+  padding: 20px;
 }
 
 .book-side h5 {
@@ -48,12 +40,4 @@
 
 .book-side-title {
   font-style: italic;
-}
-
-.link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: 0; /* Remove margin to ensure proper grid spacing */
 }
