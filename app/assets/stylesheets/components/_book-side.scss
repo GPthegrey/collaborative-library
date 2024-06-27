@@ -27,7 +27,16 @@
   border: 1px solid #ddd; /* Border for the book spine */
   text-align: center;
   padding: 20px;
+
 }
+
+.book-side:hover {
+    transform: scale(1.05);
+    border: 1px solid #2d5821; /* Border for the book spine */
+    ;
+  }
+
+
 
 .book-side h5 {
   margin: 5px 0;
@@ -40,4 +49,12 @@
 
 .book-side-title {
   font-style: italic;
+}
+
+.fa-circle-check {
+  color: #2d5821; /* Green color for the checkmark */
+}
+
+.fa-circle-xmark {
+  color: #d9534f; /* Red color for the xmark */
 }

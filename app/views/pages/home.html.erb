@@ -2,12 +2,31 @@
 <%= render 'shared/toast', message: 'Gracias por elegirnos!' %>
 
 <div class="container">
-  <div class="list">
-    <ul>
-      <li class='list-options'><%= link_to 'Todos los libros', books_path, class:'link' %></li>
-      <li class='list-options'><%= link_to 'Buscar libros disponibles en Google', book_search_path, class:'link' %></li>
-      <li class='list-options'><%= link_to 'Clubes de lectura', bookclubs_path, class:'link' %></li>
-      <li class='list-options'><%= link_to 'Eventos literarios', events_path, class:'link' %></li>
-    </ul>
+  <div class="grid">
+    <%= link_to books_path do %>
+      <div class="home-options">
+        <h3>Todos los Libros</h3>
+        <i class="fa-solid fa-book"></i>
+      </div>
+    <% end %>
+    <%= link_to book_search_path do %>
+      <div class="home-options">
+        <h3>Buscar Libros en Google</h3>
+        <i class="fa-solid fa-search"></i>
+      </div>
+    <% end %>
+    <%= link_to bookclubs_path do %>
+      <div class="home-options">
+        <h3>Clubes de Lectura</h3>
+        <i class="fa-solid fa-users"></i>
+      </div>
+    <% end %>
+    <%= link_to events_path do %>
+      <div class="home-options">
+        <h3>Eventos</h3>
+        <i class="fa-solid fa-calendar"></i>
+      </div>
+    <% end %>
   </div>
 </div>
+
