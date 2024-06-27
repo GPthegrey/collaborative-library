@@ -8,5 +8,10 @@
       <p class='card-text'> Donde?? <%= bookclub.location %></p>
       <p class='card-text'> Fecha y hora: <%= bookclub.meeting_schedule %></p>
       <p class='card-text'>Organiza: <%= User.find(bookclub.organizer_id).email %></p>
+      <% if bookclub.privacy == 'Public' && bookclub.max_members > bookclub.members.count %>
+        <%= simple_form_for [bookclub, @member] do |f| %>
+          <%= f.submit 'Unirse' %>
+        <% end %>
+      <% end %>
   </div>
 </div>

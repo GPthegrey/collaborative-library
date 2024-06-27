@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   get 'book_search', to: 'books#book_search', as: :book_search
   resources :reviews, only: [:create]
   resources :events
-  resources :bookclubs
+  resources :bookclubs do
+    resources :members, only: %i[create destroy]
+  end
 
   resources :chatrooms, only: %i[index show create] do
     resources :messages, only: :create

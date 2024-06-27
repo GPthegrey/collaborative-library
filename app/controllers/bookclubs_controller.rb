@@ -4,9 +4,12 @@ class BookclubsController < ApplicationController
 
   def index
     @bookclubs = Bookclub.all
+    @member = Member.new
+
   end
 
   def show
+    @member = Member.new
   end
 
   def new
@@ -39,6 +42,8 @@ class BookclubsController < ApplicationController
     @bookclub.destroy
     redirect_to bookclubs_path
   end
+
+
 
   private
 
