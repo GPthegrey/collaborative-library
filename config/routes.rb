@@ -22,8 +22,9 @@ Rails.application.routes.draw do
   resources :reviews, only: [:create]
   resources :events
   resources :bookclubs do
-    resources :members, only: %i[create destroy]
+    resources :members, only: %i[create]
   end
+  resources :members, only: %i[destroy]
 
   resources :chatrooms, only: %i[index show create] do
     resources :messages, only: :create

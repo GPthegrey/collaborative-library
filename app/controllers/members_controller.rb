@@ -1,11 +1,11 @@
 class MembersController < ApplicationController
+  before_action :set_bookclub, only: %i[create]
 
   def create
-    @bookclub = Bookclub.find(params[:bookclub_id])
     if @bookclub.organizer_id == current_user.id
       redirect_to @bookclub, notice: 'No puedes unirte a tu propio club de lectura'
     else
-      @member = Member.new(user_id: current_user.id, bookclub_id: @bookclub.id)
+      @member = @bookclub.members.new(user_id: current_user.id)
       if @member.save
         redirect_to @bookclub, notice: 'Te has unido al club de lectura'
       else
@@ -17,8 +17,12 @@ class MembersController < ApplicationController
   def destroy
     @member = Member.find(params[:id])
     @member.destroy
-    redirect_to bookclubs_path
+    redirect_to bookclubs_path, notice: 'Has abandonado el club de lectura'
   end
 
+  private
 
+  def set_bookclub
+    @bookclub = Bookclub.find(params[:bookclub_id])
+  end
 end
