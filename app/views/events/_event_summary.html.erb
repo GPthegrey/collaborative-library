@@ -1,0 +1,7 @@
+<%= link_to event_path(event) do %>
+  <div>
+    <h5><%= event.title %></h5>
+    <p>donde?? <%= event.address %></p>
+    <p>Fecha y hora: <%= event.start_date %>/<%= event.end_date %></p>
+  </div>
+<% end %>

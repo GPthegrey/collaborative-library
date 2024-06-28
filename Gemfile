@@ -91,3 +91,5 @@ gem "geocoder"
 # Use for displaying the map
 
 gem 'httparty'
+
+gem 'flatpickr'

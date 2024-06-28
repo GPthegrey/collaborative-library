@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to @event
     else
-      render 'new'
+      render 'new', status: :unprocessable_entity
     end
   end
 
@@ -42,7 +42,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :max_assistants, :privacy)
+    params.require(:event).permit(:title, :description, :max_assistants, :privacy, :start_date, :end_date, :address)
   end
 
   def set_event

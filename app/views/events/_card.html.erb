@@ -3,6 +3,7 @@
     <h5 class="card-title">Titulo: <%= event.title %></h5>
     <p class='card-text'>Descripcion: <%= event.description %></p>
     <p class='card-text'>Dirección: <%= event.address %></p>
+    <p class='card-text'>Fecha y Hora: <%= event.start_date %> / <%= event.end_date %> </p>
     <p class='card-text'>Numero de asistentes: <%= event.max_assistants %></p>
     <p class='card-text'>Privacidad: <%= event.privacy %></p>
     <p class='card-text'>Organiza: <%= User.find(event.organizer_id).email %></p>

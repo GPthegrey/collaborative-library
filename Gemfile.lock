@@ -132,6 +132,7 @@ GEM
       tzinfo
     execjs (2.9.1)
     ffi (1.16.3)
+    flatpickr (4.6.13.1)
     font-awesome-sass (6.5.2)
       sassc (~> 2.0)
     fugit (1.11.0)
@@ -353,6 +354,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   error_highlight (>= 0.4.0)
+  flatpickr
   font-awesome-sass (~> 6.1)
   geocoder
   httparty
